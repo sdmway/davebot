@@ -1,0 +1,26 @@
+{
+  "name": "davebot",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node .",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "author": "clownidze",
+  "dependencies": {
+    "@sapphire/decorators": "^6.1.0",
+    "@sapphire/framework": "^5.2.1",
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "prettier": "^3.3.2",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
+  },
+  "prettier": "@sapphire/prettier-config"
+}
