@@ -1,9 +1,11 @@
 import { ScheduledTask } from '@sapphire/plugin-scheduled-tasks';
+import { sendMessage } from '../handlers/sendPaydayHandler';
 
 export class SendPaydayTask extends ScheduledTask {
 	public constructor(context: ScheduledTask.LoaderContext, options: ScheduledTask.Options) {
 		super(context, {
 			...options,
+			name: 'sendPayday',
 			interval: 120000
 		});
 	}
@@ -12,11 +14,7 @@ export class SendPaydayTask extends ScheduledTask {
 		const channelId = '1251338333997629561';
 		const message = 'PAYDAY';
 
-		const channel = await this.container.client.channels.fetch(channelId);
-
-		if (channel?.isTextBased()) {
-			channel.send(message).catch(console.error);
-		}
+		await sendMessage(this.container.client, channelId, message);
 	}
 }
 
